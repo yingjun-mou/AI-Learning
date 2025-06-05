@@ -1,7 +1,7 @@
 # Softmax
 
 ## Use case
-Multi-class classification problem. Because all outputs are between 0 and 1, and sum up to 1. It converts a vector of raw prediction scores (i.e. logits) into probabalities.
+Multi-class classification problem. Because all outputs are between 0 and 1, and sum up to 1. It converts a vector of raw prediction scores (i.e. logits) into probabilities.
 
 ## Pros and Cons
 ### pros
@@ -13,14 +13,15 @@ Multi-class classification problem. Because all outputs are between 0 and 1, and
 * overflow
 * small probabilities can cause very small gradients during backpropagation, slowing down learning
 * softmax may assign high probabilities to incorrect classes, leading to overly confident predictions
-* not suited for mult-label tasks (not multi-class!), where an instance can belong to multiple classes
-* the required exponential and normalization make it computationally expensive for large dataset or many classes
+* not suited for multi-label tasks (not multi-class!), where an instance can belong to multiple classes
+* the required exponential and normalization make it computationally expensive for large datasets or many classes
 
 ## Definition (concept)
-Intention of the formula: (1) exagerate the the difference (at nominator), (2) normalization (at denominator)
+Intention of the formula: (1) exaggerate the the difference (at nominator), (2) normalization (at denominator)
 
 "max": it is an better approximation of the max function max(0, x)
 "soft": it softens sharp corner of hardmax (where x=0), making it differentiable
+
 ![alt text](./Pictures/softmax_hardmax.jpeg)
 
 ## Definition (math)
@@ -36,7 +37,7 @@ $$K$$ is the number of classes.
 ![alt text](./Pictures/softmax.png)
 
 
-## Heursitics
+## Heuristics
 * often used together with cross-entropy loss
 
 $$
@@ -46,11 +47,15 @@ $$
 $$y_{i}$$ is the true label (1 for the correct class, 0 for others),
 $$p_i$$ is the predicted probability for class i from the Softmax function.
 
-Conceptually: it penalize the network if the predicted probability for the correct class is low.
+	Conceptually: it penalize the network if the predicted probability for the correct class is low.
 
 * when K=2, it will be a Logistic function
 
 ## Minimal Implementation
-* pytorch
+* PyTorch
 
-* tensorflow
+* TensorFlow
+
+
+## Reference
+* https://www.geeksforgeeks.org/the-role-of-softmax-in-neural-networks-detailed-explanation-and-applications/
