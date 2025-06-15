@@ -1,10 +1,10 @@
-# Multi-head Attention
+# KV Cache
 
 ## Use case
 TBD
 
 ## Definition
-Attention: each embedding (of a subset of the doc) is a weighted sum (weighted by attention score of each token).
+A technique used in transformer models, particularly in large language models, to optimize inference speed and efficiency. It stores intermediate computations (specifically the "key" and "value" vectors from the attention mechanism) from previous processing steps, allowing the model to reuse them when processing subsequent tokens.
 
 ## Pros and Cons
 ### pros
@@ -15,7 +15,7 @@ Attention: each embedding (of a subset of the doc) is a weighted sum (weighted b
 
 
 ## Heuristics
-* Attention mask: mask out token comes after a target token, by overwriting it to -inf, so that the softmax value will be 0.
+* TBD
 
 ## Minimal Implementation
 * PyTorch
